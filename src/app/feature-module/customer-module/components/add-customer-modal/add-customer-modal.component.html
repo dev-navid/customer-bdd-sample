@@ -1,0 +1,96 @@
+<div class="register-form">
+  <div class="card-wrapper">
+    <app-header title="{{isAdd == true ? 'Add Customer' : 'Edit Customer'}}"></app-header>
+    <form class="form-wrapper" [formGroup]="registerForm" (submit)="onSubmit()">
+      <div class="item-wrapper">
+        <label>First name</label>
+        <input data-cy="add-firstname" id="Firstname" name="Firstname" placeholder="First name"
+               formControlName="Firstname">
+        <div class="error-message-wrapper"
+             *ngIf="(registerForm.controls['Firstname'].hasError('required') &&
+              registerForm.controls['Firstname'].touched) || (firstSubmitPush && registerForm.controls['Firstname'].hasError('required'))">
+          First name is required.
+        </div>
+      </div>
+      <div class="item-wrapper">
+        <label>Last name</label>
+        <input data-cy="add-lastname" id="Lastname"
+               name="Lastname" placeholder="Last name" formControlName="Lastname">
+        <div class="error-message-wrapper"
+             *ngIf="(registerForm.controls['Lastname'].hasError('required') &&
+              registerForm.controls['Lastname'].touched) || (firstSubmitPush && registerForm.controls['Lastname'].hasError('required'))">
+          Last name is required.
+        </div>
+      </div>
+
+      <div class="item-wrapper">
+        <label>Date of Birth</label>
+        <div>
+          <mat-datepicker #picker></mat-datepicker>
+          <input data-cy="add-date-of-birth" [matDatepicker]="picker" id="DateOfBirth" name="DateOfBirth"
+                 placeholder="Date Of Birth"
+                 class="date-picker-input"
+                 formControlName="DateOfBirth">
+          <mat-datepicker-toggle data-cy="add-date-of-birth-btn" matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        </div>
+        <div class="error-message-wrapper"
+             *ngIf="(registerForm.controls['DateOfBirth'].hasError('required') &&
+              registerForm.controls['DateOfBirth'].touched) || (firstSubmitPush && registerForm.controls['DateOfBirth'].hasError('required'))">
+          Date of Birth is required.
+        </div>
+      </div>
+
+      <div class="item-wrapper">
+        <label>Phone number</label>
+        <input data-cy="add-phone-number" type="tel" id="PhoneNumber" name="PhoneNumber" placeholder="Phone Number"
+               formControlName="PhoneNumber">
+        <div class="error-message-wrapper"
+             *ngIf="(registerForm.controls['PhoneNumber'].hasError('required') &&
+              registerForm.controls['PhoneNumber'].touched) || (firstSubmitPush && registerForm.controls['PhoneNumber'].hasError('required'))">
+          Phone number is required.
+        </div>
+        <div class="error-message-wrapper"
+             *ngIf="registerForm.controls['PhoneNumber'].hasError('wrongNumber') && registerForm.controls['PhoneNumber'].touched">
+          Phone number is not valid.
+        </div>
+      </div>
+
+      <div class="item-wrapper">
+        <label>Email</label>
+        <input data-cy="add-email" type="email" id="Email" name="Email" placeholder="Email" formControlName="Email">
+        <div class="error-message-wrapper"
+             *ngIf="(registerForm.controls['Email'].hasError('required') &&
+              registerForm.controls['Email'].touched) || (firstSubmitPush && registerForm.controls['Email'].hasError('required'))">
+          Email Address is required.
+        </div>
+        <div class="error-message-wrapper"
+             *ngIf="registerForm.controls['Email'].hasError('email') && registerForm.controls['Email'].touched">
+          Email address is not correct.
+        </div>
+      </div>
+
+      <div class="item-wrapper">
+        <label>Bank Account Number</label>
+        <input data-cy="add-bank-account-number" id="BankAccountNumber" name="BankAccountNumber"
+               placeholder="Bank Account Number"
+               formControlName="BankAccountNumber">
+        <div class="error-message-wrapper"
+             *ngIf="(registerForm.controls['BankAccountNumber'].hasError('required') &&
+              registerForm.controls['BankAccountNumber'].touched) || (firstSubmitPush && registerForm.controls['BankAccountNumber'].hasError('required'))">
+          Bank Account Number is required.
+        </div>
+        <div class="error-message-wrapper"
+             *ngIf="registerForm.controls['BankAccountNumber'].hasError('pattern') && registerForm.controls['BankAccountNumber'].touched">
+          Bank Account Number is not valid.
+        </div>
+      </div>
+
+      <div class="button-wrapper">
+        <button data-cy="add-submit" class="btn" type="submit"> Submit</button>
+        <button data-cy="add-back" class="btn" type='button'
+                (click)="closeModal()"> back
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

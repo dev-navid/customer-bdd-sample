@@ -1,0 +1,76 @@
+<div class="table-wrapper">
+  <div class="button-wrapper">
+    <button mat-raised-button data-test="customer-list-add-btn"
+            (click)="addCustomer()"
+            color="primary">Add Customer
+    </button>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" [trackBy]="trackById" class="mat-elevation-z8" data-test="table">
+    <!-- Position Column -->
+    <div matColumnDef="position" data-test="customer-list-position">
+      <th mat-header-cell *matHeaderCellDef> No.</th>
+      <td mat-cell *matCellDef="let customer; let i = index"> {{ i + 1 }}</td>
+    </div>
+
+    <!-- Firstname Column -->
+    <div matColumnDef="firstname" data-test="customer-list-firstname">
+      <th mat-header-cell *matHeaderCellDef>Firstname</th>
+      <td data-cy="item-firstname" mat-cell *matCellDef="let customer"> {{ customer.Firstname }}</td>
+    </div>
+
+    <!-- Lastname Column -->
+    <div matColumnDef="lastname" data-test="customer-list-lastname">
+      <th mat-header-cell *matHeaderCellDef> Lastname</th>
+      <td data-cy="item-lastname" mat-cell *matCellDef="let customer"> {{ customer.Lastname }}</td>
+    </div>
+
+    <!-- Date Of Birth Column -->
+    <div matColumnDef="date-of-birth" data-test="customer-list-date-of-birth">
+      <th mat-header-cell *matHeaderCellDef> Date Of Birth</th>
+      <td data-cy="item-date-of-birth" mat-cell *matCellDef="let customer"> {{ customer.DateOfBirth }}</td>
+    </div>
+
+    <!-- Phone Number Column -->
+    <div matColumnDef="phone-number" data-test="customer-list-phone-number">
+      <th mat-header-cell *matHeaderCellDef> Phone Number</th>
+      <td data-cy="item-phone-number" mat-cell *matCellDef="let customer"> {{ customer.PhoneNumber }}</td>
+    </div>
+
+    <!-- Email Column -->
+    <div matColumnDef="email" data-test="customer-list-email">
+      <th mat-header-cell *matHeaderCellDef> Email</th>
+      <td data-cy="item-email" mat-cell *matCellDef="let customer"> {{ customer.Email }}</td>
+    </div>
+
+    <!-- Bank Account Number Column -->
+    <div matColumnDef="bank-account-number" data-test="customer-list-bank-account-number">
+      <th mat-header-cell *matHeaderCellDef> Bank Account Number</th>
+      <td data-cy="item-bank-account-number" mat-cell *matCellDef="let customer"> {{ customer.BankAccountNumber }}</td>
+    </div>
+
+    <!-- Edit Column -->
+    <div matColumnDef="edit" data-test="customer-list-edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let customer">
+        <button data-cy="list-edit" (click)="editCustomer(customer)">
+          Edit
+        </button>
+      </td>
+    </div>
+
+    <!-- Delete Column -->
+    <div matColumnDef="delete" data-test="customer-list-delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let customer">
+        <button data-cy="list-delete" (click)="deleteCustomer(customer)">
+          Delete
+        </button>
+      </td>
+    </div>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+

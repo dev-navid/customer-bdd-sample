@@ -1,0 +1,11 @@
+.root-wrapper {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 25vw;
+}
+
+.content-style {
+  margin: 15px;
+}

@@ -1,0 +1,6 @@
+<h2 mat-dialog-title data-cy="confirm-title">{{ title }}</h2>
+<mat-dialog-content data-cy="confirm-description">{{ description }}</mat-dialog-content>
+<mat-dialog-actions>
+  <button data-cy="confirm-no" mat-button [mat-dialog-close]="false">Cancel</button>
+  <button data-cy="confirm-yes" mat-button [mat-dialog-close]="true">Yes</button>
+</mat-dialog-actions>
