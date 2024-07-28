@@ -1,6 +1,14 @@
 # Customer BDD Sample 
 
-Customer data structure:
+![Add Customer](https://github.com/user-attachments/assets/2a625da5-6114-41b0-85fe-13192b46c592)
+
+
+
+![Customer List](https://github.com/user-attachments/assets/4a0ec0a7-c63d-4ec4-ae21-b7f99d685a90)
+
+
+
+## Customer data structure:
 ```
 Customer {
 	Firstname
